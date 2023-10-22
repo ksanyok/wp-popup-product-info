@@ -1,0 +1,225 @@
+.popup-container {
+    display: none;
+    /* Остальные стили */
+}
+
+
+.popup-container {
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20%;
+    height: 120px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.wp-popup-product-price-wrapper {
+    flex: 1;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+
+.popup-image {
+    flex: 1;
+    max-height: 110px;
+    object-fit: contain;
+    margin-right: 20px;
+}
+
+.popup-info {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-right: 20px;
+}
+
+.wp-popup-product-price {
+    flex: 1;
+    margin: 0 20px;  /* Увеличен правый отступ */
+    display: flex;
+    align-items: center;
+}
+
+.wp-popup-total-price,
+.wp-popup-discounted-price {
+    display: inline-block !important;  /* Явно убираем display: none */
+}
+
+.wp-popup-total-price {
+    text-decoration: line-through;
+    color: #747474;
+    font-size: 20px;  /* Увеличиваем размер шрифта */
+    margin-right: 10px;
+}
+
+.wp-popup-discounted-price {
+    font-size: 25px;  /* Увеличиваем размер шрифта */
+}
+
+button.wp-popup-add-to-cart {
+    background: #d26e4b;
+    width: 20%;
+    color: #fff;
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 15px;
+}
+
+
+/* Мобильная версия */
+.mobile-popup-container {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row; /* Изменяем на row для двух колонок */
+    align-items: center;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-popup-col {
+    flex: 1; /* Занимает половину ширины родителя */
+}
+
+.mobile-popup-col--image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-popup-col--info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 10px; /* Добавляем небольшой отступ между колонками */
+}
+
+.mobile-popup-content {
+    margin-left: 15px;
+}
+
+.mobile-popup-info h2 {
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.mobile-popup-info .woocommerce-product-rating {
+    font-size: 12px; /* Уменьшаем размер шрифта для рейтинга */
+}
+
+button.mobile-popup-add-to-cart {
+    background: #d26e4b;
+    color: #fff;
+    border-radius: 25px;
+    margin: 5px;
+    font-size: 10px;
+    padding: 10px;
+    min-height: 15px;
+}
+
+
+.mobile-popup-image {
+    flex: 1;  /* Занимает 25% ширины родителя */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-popup-image img {
+    max-height: 100%;  /* Высота не больше высоты контейнера */
+    width: auto;
+}
+
+/* .mobile-popup-image {
+    width: 30%;
+} */
+
+.mobile-popup-container .mobile-popup-product-price .product-price-top .discounted-price {
+    font-size: 16px !important;
+	font-weight: 800;
+	
+}
+
+
+.mobile-popup-product-action {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.mobile-popup-product-price {
+    flex: 1;
+    margin-top: 10px;
+}
+
+.mobile-popup-add-to-cart-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* Для ландшафтной ориентации */
+@media screen and (orientation: landscape) {
+    .mobile-popup-container {
+        flex-direction: row; /* 4 колонки в ряд */
+    }
+
+    .mobile-popup-image {
+        flex: 0.2;  /* Занимает меньше места, чем другие колонки */
+        justify-content: flex-start; /* Выравнивание по левому краю */
+        padding-left: 10px;  /* Отступ слева */
+        padding-right: 10px;  /* Отступ справа */
+    }
+
+    .mobile-popup-image img {
+        max-height: 100%;  /* Уменьшаем размер изображения */
+        width: auto;
+    }
+
+    .mobile-popup-content {
+        flex: 1.4;  /* Занимает больше места, чем картинка, но меньше, чем последние две колонки */
+    }
+
+    .mobile-popup-product-price,
+    .mobile-popup-add-to-cart-wrapper {
+        flex: 0.7;  /* Каждая из этих колонок занимает 0.7 */
+        width: 100%;  /* Занимают всю ширину колонки */
+    }
+}
+
+
+
+/* Этот класс будет сокращать текст на мобильных устройствах в портретной ориентации */
+@media screen and (orientation: portrait) {
+    .mobile-popup-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 300px; /* или любая другая ширина, которую вы считаете подходящей */
+    }
+}
+
+/* Этот класс убирает сокращение для ландшафтной ориентации */
+@media screen and (orientation: landscape) {
+    .mobile-popup-title {
+        white-space: normal;
+        overflow: visible;
+        max-width: none;
+    }
+}
